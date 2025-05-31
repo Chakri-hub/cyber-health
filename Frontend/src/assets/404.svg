@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <!-- Background shape -->
+  <rect x="100" y="50" width="600" height="300" rx="20" fill="#f9f9f9" opacity="0.3"/>
+  
+  <!-- 404 Text -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="#4c7fe7">
+    404
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="250" cy="120" r="15" fill="#8a5ce0" opacity="0.7"/>
+  <circle cx="550" cy="280" r="20" fill="#4c7fe7" opacity="0.7"/>
+  <circle cx="650" cy="150" r="10" fill="#8a5ce0" opacity="0.5"/>
+  <circle cx="150" cy="250" r="12" fill="#4c7fe7" opacity="0.5"/>
+  
+  <!-- Broken link illustration -->
+  <g transform="translate(320, 270) scale(0.8)">
+    <!-- Left chain link -->
+    <path d="M50,0 A50,50 0 1,0 50,100 A50,50 0 1,0 50,0 Z M50,20 A30,30 0 1,1 50,80 A30,30 0 1,1 50,20 Z" fill="#4c7fe7"/>
+    
+    <!-- Right chain link (broken) -->
+    <path d="M150,0 A50,50 0 1,0 150,100 A50,50 0 1,0 150,0 Z M150,20 A30,30 0 1,1 150,80 A30,30 0 1,1 150,20 Z" fill="#8a5ce0"/>
+    
+    <!-- Break in the middle -->
+    <path d="M80,50 L95,50 M105,50 L120,50" stroke="#4c7fe7" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Subtle grid pattern for depth -->
+  <path d="M0,100 H800 M0,200 H800 M0,300 H800 M200,0 V400 M400,0 V400 M600,0 V400" stroke="#8a5ce0" stroke-width="1" opacity="0.1"/>
+</svg>

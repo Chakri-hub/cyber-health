@@ -1,0 +1,231 @@
+/* Secondary Navigation Bar */
+.subnav {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
+  border-bottom: 1px solid rgba(224, 224, 224, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 80px; /* Position it right below the navbar (80px is navbar height) */
+  z-index: 900;
+  backdrop-filter: blur(5px);
+  animation: fadeInDown 0.5s ease-out;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  border-radius: 16px;
+  margin-top: 10px; /* Small gap between navbar and subnav */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow effect */
+}
+
+/* Add shadow effect when scrolling */
+.subnav.scrolled {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Special styling when inside banner container */
+/* .banner-container .subnav {
+  border-top: 1px solid rgba(224, 224, 224, 0.8);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.5s ease-out;
+} */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subnav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 56px;
+}
+
+.subnav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+  gap: 5px;
+}
+
+.subnav-menu::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.subnav-item {
+  margin: 0 2px;
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.subnav-item:hover {
+  transform: translateY(-2px);
+}
+
+.subnav-link {
+  color: #555;
+  text-decoration: none;
+  padding: 0 18px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.3px;
+  border-radius: 4px 4px 0 0;
+}
+
+.subnav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.subnav-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.subnav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 3px 3px 0 0;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Hover effect for links */
+.subnav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 3px 3px 0 0;
+}
+
+.subnav-link:hover::before {
+  left: 10px;
+  right: 10px;
+  opacity: 0.5;
+}
+
+.subnav-link.active::before {
+  opacity: 0;
+}
+
+/* Dark mode styles for subnav */
+.dark-mode .subnav {
+  background: linear-gradient(to right, rgba(42, 42, 42, 0.9), rgba(50, 50, 50, 0.9));
+  border-bottom: 1px solid rgba(60, 60, 60, 0.8);
+}
+
+.dark-mode .subnav-link {
+  color: #ccc;
+}
+
+.dark-mode .subnav-link:hover {
+  color: var(--accent-color);
+  background-color: rgba(60, 60, 60, 0.3);
+}
+
+.dark-mode .subnav-link.active {
+  color: var(--accent-color);
+  background-color: rgba(60, 60, 60, 0.5);
+}
+
+.dark-mode .subnav-link.active::after,
+.dark-mode .subnav-link::before {
+  background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+}
+
+@media screen and (max-width: 960px) {
+  .subnav {
+    position: sticky;
+    top: 80px;
+    margin-bottom: 20px;
+    margin-top: 5px; /* Smaller gap on mobile */
+    width: 95%; /* Make it slightly narrower on smaller screens */
+    top: 80px; /* Keep it below the navbar */
+  }
+  
+  .subnav-container {
+    justify-content: flex-start;
+    padding: 0 15px;
+    height: 50px;
+  }
+  
+  .subnav-link {
+    padding: 0 12px;
+    font-size: 0.9rem;
+    height: 50px;
+  }
+  
+  .subnav-link.active::after,
+  .subnav-link:hover::before {
+    left: 8px;
+    right: 8px;
+  }
+  
+  .subnav-item:hover {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .subnav {
+    margin-top: 5px; /* Maintain small gap on mobile */
+    width: 95%; /* Keep it wide enough on mobile for better touch targets */
+    border-radius: 12px; /* Slightly smaller border radius on mobile */
+  }
+  
+  .subnav-container {
+    padding: 0 10px;
+  }
+  
+  .subnav-link {
+    padding: 0 10px;
+    font-size: 0.85rem;
+  }
+} 

@@ -1,0 +1,104 @@
+/* Banner Styles */
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding: 2rem 50px;
+  margin-top: 80px; /* Add margin-top equal to navbar height */
+  z-index: 1; /* Ensure proper stacking context */
+  margin-bottom: 0; /* Remove bottom margin since SubNav is now sticky */
+  overflow: visible; /* Allow elements to extend beyond container */
+}
+
+.banner-hero {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 0;
+  border-radius: 16px;
+  overflow: visible; /* Changed from hidden to allow particles to extend beyond */
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 1s ease-out, gradientShift 15s ease infinite;
+  height: auto;
+  position: relative;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--primary-color, #4c7fe7), var(--secondary-color, #8a5ce0));
+  background-size: 200% 200%;
+}
+
+/* Add a highlight to make the gap more visible */
+.banner-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+  z-index: 0; /* Set to 0 to be below the banner background */
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.banner-image {
+  /* Width calculation: 100% - (8px gap × 2) */
+  width: calc(100% - 16px);
+  height: auto;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 2; /* Set to 2 to be above the banner background */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.1);
+  /* 8px margin creates the gap between image and border */
+  margin: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  animation: pulseBorder 4s infinite ease-in-out;
+}
+
+/* Style for the SubNav when it's inside the banner container */
+.banner-container .subnav {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  margin-top: 20px; /* Add gap between banner image and subnav */
+  border-radius: 16px;
+  border-top: 1px solid rgba(224, 224, 224, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .banner-container {
+    padding: 1.5rem 30px;
+    margin-top: 80px; /* Maintain margin-top on smaller screens */
+  }
+
+  .banner-hero {
+    padding: 6px;
+  }
+
+  .banner-image {
+    width: calc(100% - 12px);
+    margin: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner-container {
+    padding: 1rem 20px;
+    margin-top: 80px; /* Maintain margin-top on smallest screens */
+  }
+
+  .banner-hero {
+    padding: 5px;
+  }
+
+  .banner-image {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+}

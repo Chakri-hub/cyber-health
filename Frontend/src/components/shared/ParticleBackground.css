@@ -1,0 +1,53 @@
+.particle-background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: visible;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: transparent; /* Allow the App background to show through */
+  pointer-events: none; /* Don't capture mouse events */
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.particle-content {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Dark mode adjustments */
+.dark-mode .particle-canvas {
+  background-color: rgba(18, 18, 18, 0.2); /* Slightly darken the background in dark mode */
+}
+
+/* Media queries for performance optimization */
+@media screen and (max-width: 768px) {
+  /* Mobile devices - reduce animation complexity */
+  .particle-canvas {
+    opacity: 0.7; /* Reduce opacity for better performance */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Respect user's motion preferences */
+  .particle-canvas {
+    display: none;
+  }
+}

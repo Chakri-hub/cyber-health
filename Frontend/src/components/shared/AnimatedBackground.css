@@ -1,0 +1,188 @@
+/* Animated Background with Circular Color Blend */
+.animated-background-wrapper {
+  position: relative;
+  min-height: 100vh; /* Fill the entire viewport height */
+  width: 100%;
+  overflow: visible;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* When there's no content, don't add extra space */
+.animated-background-wrapper.no-content {
+  min-height: 0;
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  animation: colorTransition 60s infinite alternate; /* Slowed down animation */
+  margin: 0;
+  padding: 0;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Remove conflicting content-container styles */
+/* The styles for content-container are now managed in ContentContainer.css */
+
+.color-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px); /* Further reduced blur radius for better performance */
+  opacity: 0.4; /* Further reduced opacity */
+  mix-blend-mode: screen;
+  will-change: transform; /* Hint for browser optimization */
+  transform: translateZ(0); /* Force GPU acceleration */
+  contain: paint; /* Improve performance by isolating rendering */
+}
+
+.orb-1 {
+  background: var(--primary-color);
+  width: 45vw; /* Further reduced size */
+  height: 45vw; /* Further reduced size */
+  top: 5%;
+  left: 0%;
+  animation: moveOrb1 45s infinite alternate ease-in-out; /* Even slower animation for better performance */
+}
+
+.orb-2 {
+  background: var(--secondary-color);
+  width: 40vw; /* Further reduced size */
+  height: 40vw; /* Further reduced size */
+  top: 60%;
+  right: 0%;
+  animation: moveOrb2 50s infinite alternate ease-in-out; /* Even slower animation for better performance */
+}
+
+.orb-3 {
+  background: var(--accent-color);
+  width: 35vw; /* Further reduced size */
+  height: 35vw; /* Further reduced size */
+  bottom: 0%;
+  left: 15%;
+  animation: moveOrb3 40s infinite alternate ease-in-out; /* Even slower animation for better performance */
+}
+
+/* Add a fourth orb for more complexity */
+.orb-4 {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  width: 40vw; /* Further reduced size */
+  height: 40vw; /* Further reduced size */
+  top: 20%;
+  left: 35%;
+  animation: moveOrb4 42s infinite alternate ease-in-out; /* Even slower animation for better performance */
+}
+
+@keyframes moveOrb1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10vw, 10vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(-10vw, 5vh) rotate(360deg);
+  }
+}
+
+@keyframes moveOrb2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-15vw, -10vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(15vw, -5vh) rotate(360deg);
+  }
+}
+
+@keyframes moveOrb3 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(15vw, -15vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(-10vw, -10vh) rotate(360deg);
+  }
+}
+
+@keyframes moveOrb4 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-15vw, 15vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(10vw, -15vh) rotate(360deg);
+  }
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+  .color-orb {
+    filter: blur(40px); /* Reduced blur for mobile */
+  }
+  
+  .orb-1, .orb-2, .orb-3, .orb-4 {
+    width: 60vw; /* Smaller size for mobile */
+    height: 60vw;
+    animation-duration: 60s !important; /* Slower animations on mobile */
+  }
+  
+  /* Adjust positions for better coverage on mobile */
+  .orb-1 {
+    top: 0;
+    left: -20%;
+  }
+  
+  .orb-2 {
+    top: 50%;
+    right: -20%;
+  }
+  
+  .orb-3 {
+    bottom: -10%;
+    left: 10%;
+  }
+  
+  .orb-4 {
+    top: 30%;
+    left: 20%;
+  }
+  
+  /* Remove conflicting content container styles */
+}
+
+@media screen and (max-width: 480px) {
+  /* Further adjust orbs for smaller mobile devices */
+  /* Remove conflicting content container styles */
+}
+
+/* Special styling for Auth component */
+.auth-background-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}

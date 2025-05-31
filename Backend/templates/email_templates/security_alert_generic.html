@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alert - Suspicious Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #5bc0de;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+        }
+        .content {
+            border: 1px solid #ddd;
+            border-top: none;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+        }
+        .alert-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .details-table th, .details-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .details-table th {
+            background-color: #f5f5f5;
+        }
+        .info-box {
+            background-color: #d9edf7;
+            border: 1px solid #bce8f1;
+            color: #31708f;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .action-btn {
+            display: inline-block;
+            background-color: #337ab7;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2><span class="alert-icon">⚠️</span> Security Alert: Suspicious Activity</h2>
+    </div>
+    <div class="content">
+        <p>Dear User,</p>
+        
+        <p>We've detected unusual activity related to your Cyber Health account that may require your attention.</p>
+        
+        <div class="info-box">
+            <p>Your account security is our priority. We're alerting you to this activity as a precautionary measure.</p>
+        </div>
+        
+        <h3>Incident Details:</h3>
+        <table class="details-table">
+            <tr>
+                <th>Time of Detection</th>
+                <td>{{ time }}</td>
+            </tr>
+            <tr>
+                <th>Account Email</th>
+                <td>{{ email }}</td>
+            </tr>
+            <tr>
+                <th>IP Address</th>
+                <td>{{ ip_address }}</td>
+            </tr>
+            <tr>
+                <th>Device/Browser</th>
+                <td>{{ user_agent }}</td>
+            </tr>
+            <tr>
+                <th>Type of Activity</th>
+                <td>{{ alert_type }}</td>
+            </tr>
+            <tr>
+                <th>Additional Info</th>
+                <td>{{ details }}</td>
+            </tr>
+        </table>
+        
+        <h3>Recommended Actions:</h3>
+        <ol>
+            <li>Monitor your account for any unusual activities</li>
+            <li>Consider changing your email password</li>
+            <li>Ensure your device is secure and free from malware</li>
+            <li>If you don't recognize this activity, please contact our support team</li>
+        </ol>
+        
+        {% if is_admin %}
+        <div style="background-color: #d9edf7; border: 1px solid #bce8f1; padding: 15px; margin: 20px 0; border-radius: 4px;">
+            <h3 style="color: #31708f; margin-top: 0;">Admin Information</h3>
+            <p>This is an admin notification. The user has also been notified about this security incident.</p>
+            <p><strong>User ID:</strong> {{ email }}</p>
+            <p><strong>Alert Type:</strong> {{ alert_type }}</p>
+        </div>
+        {% endif %}
+        
+        <p>If you have any questions or concerns, please contact our support team.</p>
+        
+        <p>Best regards,<br>
+        Cyber Health Security Team</p>
+    </div>
+    <div class="footer">
+        <p>This is an automated security alert. Please do not reply directly to this email.</p>
+        <p>© 2023 Cyber Health. All rights reserved.</p>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,393 @@
+.body-fat-estimator {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.body-fat-estimator h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tool-description {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.method-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.method-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.method-button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.unit-toggle span {
+  margin: 0 10px;
+  color: #7f8c8d;
+}
+
+.unit-toggle span.active {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+.form-group.col-md-6 {
+  width: 100%;
+  max-width: 300px;
+  display: inline-block;
+  margin: 0 10px 15px 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group-append {
+  margin-left: 5px;
+  background-color: #e9ecef;
+  padding: 5px 10px;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-control.invalid {
+  border: 1px solid #dc3545;
+  background-color: #fff8f8;
+}
+
+.validation-error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.calculate-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.calculate-button:hover {
+  background-color: #2980b9;
+}
+
+.calculate-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.visual-slider {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider-container {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.slider-container input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #7f8c8d;
+}
+
+.slider-visuals {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.body-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.results {
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.result-card {
+  display: inline-block;
+  width: 45%;
+  margin: 0 2.5%;
+  padding: 15px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.result-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.result-label {
+  font-size: 14px;
+}
+
+.healthy-range {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.healthy-range h4 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.range-bar {
+  height: 30px;
+  display: flex;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.range-segment {
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.range-segment.essential {
+  background-color: #3498db;
+}
+
+.range-segment.athlete {
+  background-color: #2ecc71;
+}
+
+.range-segment.fitness {
+  background-color: #f1c40f;
+}
+
+.range-segment.average {
+  background-color: #e67e22;
+}
+
+.range-segment.obese {
+  background-color: #e74c3c;
+}
+
+.range-marker {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 50px;
+  background-color: #2c3e50;
+  transform: translateX(-50%);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.reset-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .form-group.col-md-6 {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .result-card {
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+}

@@ -1,0 +1,360 @@
+.daily-calorie-tracker {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.daily-calorie-tracker h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tool-description {
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tracker-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .tracker-container {
+    flex-direction: column;
+  }
+}
+
+/* Calorie Goal Section */
+.calorie-goal-section {
+  flex: 1;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calorie-goal-section h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Progress Ring */
+.progress-section {
+  margin-top: 30px;
+}
+
+.progress-ring-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  margin-top: 20px;
+}
+
+.progress-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #eee;
+  transform-origin: right center;
+  border-radius: 180px 0 0 180px;
+}
+
+.progress-ring:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 0 180px 180px 0;
+}
+
+.progress-ring .progress-fill {
+  background-color: #4CAF50;
+  transform: rotate(0deg);
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+}
+
+.progress-center {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.percentage {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.calorie-count {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Meal Log Section */
+.meal-log-section {
+  flex: 1.2;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meal-log-section h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #3e8e41;
+}
+
+.message-container {
+  height: 30px;
+  margin: 10px 0;
+}
+
+.message {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+/* Meal List */
+.meal-list {
+  margin-top: 20px;
+}
+
+.no-meals {
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.meal-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.meal-category {
+  margin-bottom: 10px;
+}
+
+.meal-type-header {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #e1e1e1;
+}
+
+.meal-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+.meal-item:hover {
+  background-color: #e9ecef;
+}
+
+.meal-info {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.meal-name {
+  color: #333;
+}
+
+.meal-calories {
+  color: #666;
+  font-weight: 500;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #bd2130;
+}
+
+.total-calories {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f8e9;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.total-value {
+  color: #4CAF50;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #0b7dda;
+}
+
+.reset-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Health Tips Section */
+.health-tips {
+  background-color: #e8f5e9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.health-tips h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.health-tips ul {
+  padding-left: 20px;
+}
+
+.health-tips li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Responsive design for very small screens */
+@media (max-width: 480px) {
+  .percentage {
+    font-size: 28px;
+  }
+  
+  .calorie-count {
+    font-size: 14px;
+  }
+  
+  .meal-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+} 

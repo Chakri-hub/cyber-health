@@ -1,0 +1,201 @@
+# Cyber-Health Application - Installation Guide
+
+This guide will help you set up and run the Cyber-Health application on Windows, Linux, or macOS.
+
+## Prerequisites
+
+### All Platforms
+- Git (for cloning the repository)
+- Internet connection for downloading dependencies
+
+### Windows
+- Node.js 18 or higher
+- Python 3.8 or higher
+- Windows PowerShell or Command Prompt
+
+### Linux
+- Node.js 18 or higher
+- Python 3.8 or higher
+- Terminal access
+
+### macOS
+- Node.js 18 or higher
+- Python 3.8 or higher
+- Terminal access
+
+## Step 1: Install Required Software
+
+### Windows
+1. **Install Node.js**:
+   - Download the installer from https://nodejs.org/
+   - Run the installer and follow the instructions
+   - Check installation: Open PowerShell and run `node -v` and `npm -v`
+
+2. **Install Python**:
+   - Download the installer from https://www.python.org/downloads/
+   - Run the installer, and check "Add Python to PATH"
+   - Check installation: Open PowerShell and run `python --version`
+
+3. **Install Git** (if not already installed):
+   - Download from https://git-scm.com/download/win
+   - Follow the installation instructions
+
+### Linux (Ubuntu/Debian)
+1. **Install Node.js**:
+   ```
+   sudo apt update
+   sudo apt install nodejs npm
+   node -v
+   npm -v
+   ```
+
+2. **Install Python**:
+   ```
+   sudo apt update
+   sudo apt install python3 python3-pip python3-venv
+   python3 --version
+   ```
+
+3. **Install Git** (if not already installed):
+   ```
+   sudo apt update
+   sudo apt install git
+   ```
+
+### macOS
+1. **Install Node.js**:
+   - Download the installer from https://nodejs.org/
+   - OR use Homebrew: `brew install node`
+   - Check installation: `node -v` and `npm -v`
+
+2. **Install Python**:
+   - Download from https://www.python.org/downloads/
+   - OR use Homebrew: `brew install python`
+   - Check installation: `python3 --version`
+
+3. **Install Git** (if not already installed):
+   - If not installed, macOS will prompt you to install developer tools when you first run git
+   - OR use Homebrew: `brew install git`
+
+## Step 2: Get the Code
+
+### All Platforms
+1. Clone the repository (or download and extract if you have the code as a ZIP file):
+   ```
+   git clone <repository-url>
+   cd <project-folder>
+   ```
+   OR navigate to the folder where you extracted the files.
+
+## Step 3: Set Up the Frontend
+
+### Windows
+```
+cd Frontend
+npm install
+```
+
+### Linux/macOS
+```
+cd Frontend
+npm install
+```
+
+## Step 4: Set Up the Backend
+
+### Windows
+```
+cd Backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Linux/macOS
+```
+cd Backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Step 5: Set Up MongoDB
+
+All platforms require a MongoDB Atlas account:
+
+1. Sign up or log in to MongoDB Atlas at https://www.mongodb.com/cloud/atlas
+2. Create a new project (or use an existing one)
+3. Build a new cluster (the free tier M0 is sufficient for development)
+4. Create a database user with a secure password
+5. Configure network access (add your IP address or 0.0.0.0/0 for development)
+6. Get your connection string from the Atlas dashboard
+
+Create a `.env` file in the Backend directory with:
+```
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
+MONGODB_NAME=cyber_health
+```
+Replace the placeholders with your actual MongoDB Atlas credentials.
+
+## Step 6: Run the Application
+
+### Windows
+1. Start the Backend:
+   ```
+   cd Backend
+   venv\Scripts\activate
+   python manage.py migrate
+   python manage.py runserver
+   ```
+
+2. Start the Frontend (in a new terminal window):
+   ```
+   cd Frontend
+   npm run dev
+   ```
+
+### Linux/macOS
+1. Start the Backend:
+   ```
+   cd Backend
+   source venv/bin/activate
+   python manage.py migrate
+   python manage.py runserver
+   ```
+
+2. Start the Frontend (in a new terminal window):
+   ```
+   cd Frontend
+   npm run dev
+   ```
+
+## Step 7: Access the Application
+Open your web browser and navigate to:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
+
+## Troubleshooting
+
+### Windows Issues
+- If Python command is not found, try using `py` instead of `python`
+- If npm installs fail, run PowerShell as Administrator
+
+### Linux Issues
+- If you get permission errors, try using `sudo` with the commands
+- Make sure development packages are installed: `sudo apt install build-essential`
+
+### macOS Issues
+- If you get permission errors, check folder permissions
+- If experiencing issues with Python, ensure you're using Python3 explicitly
+
+### MongoDB Issues
+- Verify your network connection and that your IP is whitelisted in MongoDB Atlas
+- Double-check your connection string format and credentials
+
+### General Issues
+- Clear npm cache if you experience package installation issues: `npm cache clean --force`
+- Check that all services are running before trying to access the application
+- Review application logs for specific error messages
+
+## Need Help?
+If you continue to experience issues, please reach out to the development team for assistance. 

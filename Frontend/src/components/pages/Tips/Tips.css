@@ -1,0 +1,822 @@
+.tips-container {
+  padding: 2rem;
+  text-align: left;
+  min-height: 60vh;
+}
+
+.content-container h1 {
+  color: white;
+  user-select: none;
+}
+
+ 
+
+.tips-intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Layout options */
+.tips-container .layout-options-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.tips-container .layout-options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tips-container .layout-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Specific styles for Tips layout buttons to prevent conflicts */
+.tips-container .layout-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.tips-container .layout-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.tips-container .layout-button.active {
+  background-color: #4169e1;
+  border-color: #4169e1;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.4);
+}
+
+/* Override any pseudo-elements from other components */
+.tips-container .grid-icon::before,
+.tips-container .grid-icon::after,
+.tips-container .list-icon::before,
+.tips-container .list-icon::after,
+.tips-container .featured-icon::before,
+.tips-container .featured-icon::after {
+  content: none;
+}
+
+/* Default grid layout */
+.user-tips-view.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .user-tips-view.grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+  }
+}
+
+/* List layout */
+.user-tips-view.list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.user-tips-view.list-layout .tip-display-card {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+}
+
+.user-tips-view.list-layout .tip-media {
+  width: 200px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+.user-tips-view.list-layout .tip-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Featured layout */
+.user-tips-view.featured-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.user-tips-view.featured-layout .tip-display-card:first-child {
+  grid-column: span 12;
+  height: 400px;
+}
+
+.user-tips-view.featured-layout .tip-display-card:not(:first-child) {
+  grid-column: span 6;
+}
+
+@media (max-width: 768px) {
+  .user-tips-view.featured-layout .tip-display-card:not(:first-child) {
+    grid-column: span 12;
+  }
+}
+
+.user-tips-view.featured-layout .tip-display-card:first-child .tip-media {
+  height: 300px;
+}
+
+.templates-grid.list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.templates-grid.featured-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.templates-grid.featured-layout .template-card:first-child {
+  grid-column: span 12;
+}
+
+.templates-grid.featured-layout .template-card:not(:first-child) {
+  grid-column: span 6;
+}
+
+@media (max-width: 768px) {
+  .templates-grid.featured-layout .template-card:not(:first-child) {
+    grid-column: span 12;
+  }
+}
+
+/* Admin templates styles */
+.admin-templates-section {
+  margin-top: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add-template-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  width: auto;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.add-template-button:hover {
+  background-color: #f8f8f8;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border-color: #4169e1;
+  color: #4169e1;
+}
+
+.add-template-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.add-template-button .plus-icon {
+  margin-left: 0.5rem;
+}
+
+.template-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.existing-templates {
+  margin-top: 2rem;
+}
+
+.template-card {
+  position: relative;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 12px;
+  padding: 1.25rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 6px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateZ(0);
+}
+
+.template-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 8px 10px rgba(0, 0, 0, 0.08);
+  border-color: rgba(65, 105, 225, 0.3);
+}
+
+.template-card .template-media-area {
+  margin-top: 1.5rem;
+}
+
+.template-card .close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+}
+
+.template-card .close-button:hover {
+  color: white;
+  background-color: #ff3333;
+  transform: rotate(90deg);
+  opacity: 1;
+  box-shadow: 0 3px 8px rgba(255, 51, 51, 0.3);
+}
+
+.template-media-area {
+  height: 180px;
+  background-color: #f8f8f8;
+  background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5), 
+                    linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.template-media-area:hover {
+  background-color: #f0f0f0;
+  border-color: rgba(65, 105, 225, 0.3);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.plus-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4169e1;
+  transition: transform 0.3s ease;
+}
+
+.add-template-button:hover .plus-icon {
+  transform: rotate(90deg);
+}
+
+.template-text-area {
+  margin-bottom: 1rem;
+}
+
+.template-text-area label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.template-text-area textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #222;
+  color: white;
+}
+
+.save-template-button {
+  align-self: center;
+  width: 80%;
+  padding: 0.75rem;
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.save-template-button:hover {
+  background-color: #3757c5;
+}
+
+.save-template-button.saved {
+  background-color: #4CAF50;
+  animation: pulse 1.5s ease-in-out;
+}
+
+.save-template-button.hide-button {
+  opacity: 0.8;
+  transform: scale(0.95);
+  padding: 0.5rem;
+  width: auto;
+  min-width: 80px;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.save-template-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.uploaded-image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.file-name-preview {
+  padding: 1rem;
+  background-color: #e9e9e9;
+  border-radius: 4px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.template-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* User view styles */
+.user-tips-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tip-display-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tip-media {
+  height: 200px;
+  overflow: hidden;
+}
+
+.tip-image, .tip-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tip-content {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid #f44336;
+}
+
+.dismiss-error {
+  background: none;
+  border: none;
+  color: #f44336;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Dark mode styles */
+.dark-mode .template-card {
+  background: rgba(50, 50, 50, 0.8);
+  color: #fff;
+  border-color: #444;
+}
+
+.dark-mode .template-media-area {
+  background-color: #333;
+}
+
+.dark-mode .template-text-area label {
+  color: #ddd;
+}
+
+.dark-mode .template-text-area textarea {
+  background-color: #444;
+  border-color: #555;
+  color: #fff;
+}
+
+.dark-mode .save-template-button {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .save-template-button:hover {
+  background-color: #555;
+  border-color: #777;
+}
+
+.dark-mode .tip-display-card {
+  border-color: #444;
+}
+
+.dark-mode .tip-content {
+  background-color: #333;
+  color: #ddd;
+}
+
+.dark-mode .add-template-button {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+/* Reorder functionality */
+.reorder-instructions {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Reorder button styling */
+.reorder-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.reorder-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.reorder-button.active {
+  background-color: #4169e1;
+  border-color: #4169e1;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.4);
+}
+
+.template-card.reorder-mode {
+  cursor: grab;
+  position: relative;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 119, 0, 0.2);
+}
+
+.template-card.reorder-mode:hover {
+  box-shadow: 0 0 0 2px rgba(255, 119, 0, 0.5);
+}
+
+.template-card.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  box-shadow: 0 0 10px rgba(255, 119, 0, 0.8);
+}
+
+.drag-handle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.drag-handle::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: radial-gradient(circle, #fff 2px, transparent 2px);
+  background-size: 6px 6px;
+  background-position: center;
+}
+
+/* Login prompt styling - enhanced version */
+.login-prompt-container {
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  animation: fadeIn 0.5s ease-out;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.login-prompt-container:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-prompt {
+  background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(65, 105, 225, 0.3));
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(65, 105, 225, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-prompt::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.login-prompt h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.login-prompt p {
+  margin-bottom: 1.8rem;
+  color: white;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login-prompt .login-button {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background-color: #4169e1;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(65, 105, 225, 0.4);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.login-prompt .login-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.login-prompt .login-button:hover {
+  background-color: #3154b8;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(65, 105, 225, 0.5);
+}
+
+.login-prompt .login-button:hover::before {
+  left: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .templates-grid, .user-tips-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .admin-controls {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .add-template-button {
+    width: auto;
+    justify-content: center;
+  }
+  
+  .layout-options-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .templates-grid, .user-tips-view {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode styles for login prompt */
+.dark-mode .login-prompt {
+  background: linear-gradient(135deg, rgba(65, 105, 225, 0.2), rgba(65, 105, 225, 0.4));
+  border: 1px solid rgba(65, 105, 225, 0.3);
+}
+
+.dark-mode .login-prompt h3 {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .login-prompt p {
+  color: #eee;
+}
+
+/* Responsive styles for login prompt */
+@media (max-width: 768px) {
+  .login-prompt {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .login-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .login-prompt .login-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-prompt h3 {
+    font-size: 1.5rem;
+  }
+  
+  .login-prompt p {
+    font-size: 1rem;
+  }
+  
+  .login-button {
+    width: auto;
+    min-width: 200px;
+    padding: 0.75rem 1.5rem;
+    background-color: #4169e1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .login-button:hover {
+    background-color: #3757c5;
+    transform: translateY(-2px);
+  }
+}

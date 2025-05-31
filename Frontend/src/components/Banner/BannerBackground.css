@@ -1,0 +1,374 @@
+/* Banner Animated Background with Circular Color Blend */
+.banner-animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  animation: colorTransition 30s infinite alternate;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+.banner-animated-background.animate {
+  opacity: 1 !important;
+}
+
+.banner-color-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px); /* Further reduced blur for better performance */
+  opacity: 0.5; /* Further reduced opacity */
+  mix-blend-mode: screen;
+  transform: translateZ(0); /* Force GPU acceleration */
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  will-change: transform; /* Hint for browser optimization */
+  contain: paint; /* Improve performance by isolating rendering */
+}
+
+.banner-animated-background.animate .banner-color-orb {
+  transform: scale(1);
+}
+
+/* Container for all animated elements */
+.banner-animation-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  z-index: 1;
+}
+
+.banner-orb-1 {
+  background: var(--primary-color, #4c7fe7);
+  width: 60%;
+  height: 60%;
+  top: -20%;
+  left: -10%;
+  animation: bannerMoveOrb1 20s infinite alternate ease-in-out;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform; /* Hint for browser optimization */
+}
+
+.banner-orb-2 {
+  background: var(--secondary-color, #8a5ce0);
+  width: 50%;
+  height: 50%;
+  bottom: -10%;
+  right: -10%;
+  animation: bannerMoveOrb2 25s infinite alternate ease-in-out;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform; /* Hint for browser optimization */
+}
+
+.banner-orb-3 {
+  background: var(--accent-color, #ff7e5f);
+  width: 40%;
+  height: 40%;
+  bottom: 20%;
+  left: 30%;
+  animation: bannerMoveOrb3 18s infinite alternate ease-in-out;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform; /* Hint for browser optimization */
+}
+
+/* Particles that extend beyond the banner */
+.banner-particles-container {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: calc(100% + 100px);
+  height: calc(100% + 100px);
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.banner-particle {
+  position: absolute;
+  opacity: 0;
+  animation: particleFloat 15s infinite linear;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform, opacity; /* Hint for browser optimization */
+  contain: layout; /* Improve performance by isolating layout */
+}
+
+/* Plus Symbol Styles */
+.plus-particle::before,
+.plus-particle::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(135deg, var(--primary-color, #4c7fe7), var(--secondary-color, #8a5ce0));
+}
+
+/* Horizontal bar of plus */
+.plus-particle::before {
+  width: 100%;
+  height: 30%;
+  top: 35%;
+  left: 0;
+}
+
+/* Vertical bar of plus */
+.plus-particle::after {
+  width: 30%;
+  height: 100%;
+  top: 0;
+  left: 35%;
+}
+
+/* Thicker plus symbols for some particles */
+.plus-particle:nth-child(even)::before {
+  height: 40%;
+  top: 30%;
+}
+
+.plus-particle:nth-child(even)::after {
+  width: 40%;
+  left: 30%;
+}
+
+/* Thinner plus symbols for other particles */
+.plus-particle:nth-child(3n)::before {
+  height: 20%;
+  top: 40%;
+}
+
+.plus-particle:nth-child(3n)::after {
+  width: 20%;
+  left: 40%;
+}
+
+/* Shield Symbol Styles */
+.shield-particle {
+  position: absolute;
+  opacity: 0;
+  animation: shieldFloat 18s infinite linear;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform, opacity; /* Hint for browser optimization */
+  contain: layout; /* Improve performance by isolating layout */
+}
+
+.shield-particle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color, #4c7fe7), var(--secondary-color, #8a5ce0));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transform-origin: center;
+}
+
+/* Add inner shield detail */
+.shield-particle::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  background: linear-gradient(135deg, var(--secondary-color, #8a5ce0), var(--accent-color, #ff7e5f));
+  clip-path: polygon(50% 10%, 90% 30%, 90% 70%, 50% 90%, 10% 70%, 10% 30%);
+  transform-origin: center;
+  opacity: 0.7;
+}
+
+/* Generate different colors for each symbol */
+.plus-particle:nth-child(odd)::before,
+.plus-particle:nth-child(odd)::after {
+  background: linear-gradient(135deg, var(--secondary-color, #8a5ce0), var(--accent-color, #ff7e5f));
+}
+
+.plus-particle:nth-child(3n)::before,
+.plus-particle:nth-child(3n)::after {
+  background: linear-gradient(135deg, var(--accent-color, #ff7e5f), var(--primary-color, #4c7fe7));
+}
+
+.shield-particle:nth-child(odd)::before {
+  background: linear-gradient(135deg, var(--secondary-color, #8a5ce0), var(--accent-color, #ff7e5f));
+}
+
+.shield-particle:nth-child(odd)::after {
+  background: linear-gradient(135deg, var(--primary-color, #4c7fe7), var(--secondary-color, #8a5ce0));
+}
+
+.shield-particle:nth-child(3n)::before {
+  background: linear-gradient(135deg, var(--accent-color, #ff7e5f), var(--primary-color, #4c7fe7));
+}
+
+.shield-particle:nth-child(3n)::after {
+  background: linear-gradient(135deg, var(--secondary-color, #8a5ce0), var(--primary-color, #4c7fe7));
+}
+
+/* Define different sizes and positions for plus particles */
+.particle-1 { width: 30px; height: 30px; top: 10%; left: -5%; animation-delay: 0s; }
+.particle-2 { width: 20px; height: 20px; top: 20%; right: -3%; animation-delay: 1s; }
+.particle-3 { width: 25px; height: 25px; bottom: 15%; left: 10%; animation-delay: 2s; }
+.particle-4 { width: 15px; height: 15px; bottom: 10%; right: 5%; animation-delay: 3s; }
+.particle-5 { width: 35px; height: 35px; top: -5%; left: 30%; animation-delay: 4s; }
+.particle-6 { width: 22px; height: 22px; bottom: -8%; right: 25%; animation-delay: 5s; }
+.particle-7 { width: 18px; height: 18px; top: 40%; left: -8%; animation-delay: 6s; }
+.particle-8 { width: 28px; height: 28px; top: 30%; right: -10%; animation-delay: 7s; }
+.particle-9 { width: 24px; height: 24px; bottom: -10%; left: 40%; animation-delay: 8s; }
+.particle-10 { width: 32px; height: 32px; top: -12%; right: 35%; animation-delay: 9s; }
+.particle-11 { width: 16px; height: 16px; top: 60%; left: -15%; animation-delay: 10s; }
+.particle-12 { width: 26px; height: 26px; bottom: 30%; right: -15%; animation-delay: 11s; }
+.particle-13 { width: 19px; height: 19px; top: -15%; left: 60%; animation-delay: 12s; }
+.particle-14 { width: 23px; height: 23px; bottom: -15%; right: 50%; animation-delay: 13s; }
+.particle-15 { width: 27px; height: 27px; top: 50%; right: -20%; animation-delay: 14s; }
+
+/* Define different sizes and positions for shield particles */
+.shield-1 { width: 34px; height: 40px; top: 15%; right: -8%; animation-delay: 0.5s; }
+.shield-2 { width: 24px; height: 28px; bottom: 25%; left: -10%; animation-delay: 1.5s; }
+.shield-3 { width: 28px; height: 32px; top: -10%; left: 50%; animation-delay: 2.5s; }
+.shield-4 { width: 20px; height: 24px; bottom: -5%; right: 40%; animation-delay: 3.5s; }
+.shield-5 { width: 36px; height: 42px; top: 35%; left: -15%; animation-delay: 4.5s; }
+.shield-6 { width: 26px; height: 30px; bottom: 35%; right: -12%; animation-delay: 5.5s; }
+.shield-7 { width: 30px; height: 36px; top: -8%; right: 15%; animation-delay: 6.5s; }
+.shield-8 { width: 22px; height: 26px; bottom: -12%; left: 20%; animation-delay: 7.5s; }
+.shield-9 { width: 32px; height: 38px; top: 55%; right: -18%; animation-delay: 8.5s; }
+.shield-10 { width: 28px; height: 34px; bottom: 45%; left: -20%; animation-delay: 9.5s; }
+
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: translate3d(10px, -10px, 0) rotate(45deg) scale(1);
+  }
+  30% {
+    transform: translate3d(40px, -40px, 0) rotate(135deg) scale(1);
+  }
+  50% {
+    transform: translate3d(70px, -70px, 0) rotate(225deg) scale(1);
+  }
+  70% {
+    transform: translate3d(90px, -90px, 0) rotate(315deg) scale(1);
+  }
+  90% {
+    opacity: 0.6;
+    transform: translate3d(100px, -100px, 0) rotate(405deg) scale(1);
+  }
+  100% {
+    transform: translate3d(120px, -120px, 0) rotate(450deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes shieldFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: translate3d(-10px, -15px, 0) rotate(-20deg) scale(1);
+  }
+  30% {
+    transform: translate3d(-30px, -45px, 0) rotate(-60deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-50px, -75px, 0) rotate(-100deg) scale(1);
+  }
+  70% {
+    transform: translate3d(-70px, -105px, 0) rotate(-140deg) scale(1);
+  }
+  90% {
+    opacity: 0.6;
+    transform: translate3d(-90px, -135px, 0) rotate(-180deg) scale(1);
+  }
+  100% {
+    transform: translate3d(-110px, -165px, 0) rotate(-220deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes bannerMoveOrb1 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(10%, 15%, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(-5%, 10%, 0) rotate(360deg);
+  }
+}
+
+@keyframes bannerMoveOrb2 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-15%, -10%, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(10%, -5%, 0) rotate(360deg);
+  }
+}
+
+@keyframes bannerMoveOrb3 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(15%, -15%, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(-10%, -10%, 0) rotate(360deg);
+  }
+}
+
+/* Add a subtle pulse animation to highlight the gap */
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Reduce number of particles on smaller screens */
+@media screen and (max-width: 768px) {
+  .banner-color-orb {
+    filter: blur(40px);
+  }
+  
+  .banner-particle {
+    transform: scale(0.7);
+  }
+  
+  .banner-particles-container {
+    top: -30px;
+    left: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+  }
+
+  /* Hide some particles on mobile for better performance */
+  .particle-11,
+  .particle-12,
+  .particle-13,
+  .particle-14,
+  .particle-15,
+  .shield-8,
+  .shield-9,
+  .shield-10 {
+    display: none;
+  }
+}

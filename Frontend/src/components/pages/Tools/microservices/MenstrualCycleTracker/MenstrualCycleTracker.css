@@ -1,0 +1,251 @@
+.menstrual-cycle-tracker {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.tracker-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.tracker-form, .tracker-history {
+  flex: 1;
+  min-width: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.tracker-form h2 {
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+.tracker-history h3 {
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.message {
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 5px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group .input-helper {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #757575;
+  font-style: italic;
+}
+
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.symptoms-checkbox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.symptom-option {
+  display: flex;
+  align-items: center;
+}
+
+.symptom-option input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button.submit-btn {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button.submit-btn:hover {
+  background-color: #c2185b;
+}
+
+button.submit-btn:disabled {
+  background-color: #f8bbd0;
+  cursor: not-allowed;
+}
+
+.cycle-calendar {
+  margin-bottom: 20px;
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fcfcfc;
+}
+
+.cycle-calendar h4 {
+  margin-top: 0;
+  color: #555;
+}
+
+.calendar-entries {
+  margin: 15px 0;
+}
+
+.calendar-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.calendar-entry .date {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.flow-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.flow-light {
+  background-color: #ffcdd2;
+}
+
+.flow-medium {
+  background-color: #ef9a9a;
+}
+
+.flow-heavy {
+  background-color: #e57373;
+}
+
+.flow-very.heavy {
+  background-color: #d32f2f;
+}
+
+.calendar-entry .duration {
+  font-size: 14px;
+  color: #777;
+  margin-left: auto;
+}
+
+.prediction {
+  padding: 10px;
+  background-color: #f3e5f5;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.history-list h4 {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.history-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history-list li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border-left: 4px solid #e91e63;
+}
+
+.history-list li p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tracker-container {
+    flex-direction: column;
+  }
+  
+  .symptoms-checkbox {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Login prompt styles */
+.login-prompt-banner {
+  background-color: #f8f0ff;
+  border-left: 4px solid #8a4fff;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.login-prompt-banner p {
+  margin: 0;
+  color: #5e35b1;
+}
+
+.login-prompt-banner a {
+  color: #3f51b5;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-prompt-banner a:hover {
+  text-decoration: underline;
+}
+
+.login-required-note {
+  text-align: center;
+  margin-top: 8px;
+  color: #e91e63;
+  font-style: italic;
+}
+
+.submit-btn:disabled {
+  background-color: #b39ddb;
+  cursor: not-allowed;
+} 

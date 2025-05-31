@@ -1,0 +1,142 @@
+.profile-update-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.profile-update-popup {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #00f7ff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.5);
+  width: 90%;
+  max-width: 500px;
+  padding: 0;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+  color: white;
+  backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.popup-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #00f7ff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 247, 255, 0.3);
+}
+
+.popup-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #00f7ff;
+  text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: neonPulse 2s infinite alternate;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #00f7ff;
+  text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: neonPulse 2s infinite alternate;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #00f7ff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 5px rgba(0, 247, 255, 0.7);
+}
+
+.popup-content {
+  padding: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 247, 255, 0.3);
+}
+
+.primary-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #00f7ff;
+  border: 1px solid #00f7ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+}
+
+.primary-button:hover {
+  background-color: rgba(0, 247, 255, 0.15);
+  box-shadow: 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #00f7ff;
+  border: 1px solid #00f7ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+}
+
+.secondary-button:hover {
+  background-color: rgba(0, 247, 255, 0.15);
+  box-shadow: 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.7);
+  }
+  to {
+    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 15px rgba(0, 247, 255, 0.7), 0 0 20px rgba(0, 247, 255, 0.5);
+  }
+} 

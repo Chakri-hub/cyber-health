@@ -1,0 +1,394 @@
+/* Disable autocomplete styling across browsers */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* Remove browser-specific form element styling */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+/* Force off autocomplete background in Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+  background-color: transparent !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; /* Add smooth scrolling */
+  position: relative;
+}
+
+body {
+  padding-top: 0;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 960px) {
+  body {
+    padding-top: 0; /* Remove padding on smaller screens */
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Enhanced theme colors based on the banner */
+  --primary-color: #4c7fe7; /* Blue from banner */
+  --secondary-color: #8a5ce0; /* Purple from banner */
+  --accent-color: #ff7e5f; /* Green accent color from banner */
+  --primary-dark: #3c5fc4; /* Darker blue for hover states */
+  --secondary-dark: #7a4cd0; /* Darker purple for hover states */
+  --accent-dark: #5eba65; /* Darker green for hover states */
+  --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --gradient-hover: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+  --dark-color: #242424;
+  --light-color: #ffffff;
+  --text-dark: #333333;
+  --text-light: rgba(255, 255, 255, 0.87);
+  
+  /* Enhanced dark mode colors */
+  --dark-bg-primary: #171923;
+  --dark-bg-secondary: #1a202c;
+  --dark-bg-tertiary: #222836;
+  --dark-bg-card: #2d3748;
+  --dark-border: #3c4655;
+  --dark-text-primary: #e2e8f0;
+  --dark-text-secondary: #a0aec0;
+  --dark-accent: #7f9cf5;
+  --dark-accent-hover: #667eea;
+  --dark-success: #48bb78;
+  --dark-warning: #ecc94b;
+  --dark-danger: #f56565;
+  --dark-info: #4299e1;
+  
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  --background-light: #f9f9f9;
+  --background-dark: #171923;
+  --font-size-base: 16px;
+  --text-spacing: 1;
+
+  color-scheme: light dark;
+  color: var(--text-dark);
+  background-color: var(--light-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth; /* Add smooth scrolling to root element */
+}
+
+/* Animation Keyframes */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorTransition {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: inherit;
+  transition: var(--transition-normal);
+}
+a:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 3px rgba(123, 222, 131, 0.3);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  font-size: var(--font-size-base);
+  letter-spacing: calc(0.05em * var(--text-spacing));
+  line-height: calc(1.5 * var(--text-spacing));
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  color: var(--light-color);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+button:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  animation: gradientShift 3s ease infinite;
+}
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(123, 222, 131, 0.5);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: var(--dark-text-primary);
+    background-color: var(--dark-bg-primary);
+  }
+  a:hover {
+    color: var(--dark-accent);
+  }
+  button {
+    background-color: var(--primary-color);
+  }
+}
+
+/* Accessibility Classes */
+.hide-images img:not(.navbar-logo-image) {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+.hide-images .image-placeholder {
+  display: inline-block !important;
+  background-color: #f5f5f5 !important;
+  border: 1px dashed #ccc !important;
+  width: 100% !important;
+  height: 150px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #666 !important;
+  font-size: 0.9rem !important;
+  margin: 10px 0 !important;
+}
+
+.dark-mode {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.dark-mode body {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.dark-mode .auth-card,
+.dark-mode .accessibility-menu {
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+  border: 1px solid var(--dark-border) !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark-mode .auth-card h2,
+.dark-mode .auth-card label,
+.dark-mode .tab-button,
+.dark-mode .submit-button {
+  color: var(--dark-text-primary) !important;
+  text-shadow: none !important;
+}
+
+.dark-mode .auth-card h2,
+.dark-mode .tab-button.active {
+  color: var(--dark-accent) !important;
+  text-shadow: 0 0 10px rgba(127, 156, 245, 0.4) !important;
+}
+
+.dark-mode .auth-card input,
+.dark-mode .auth-card select,
+.dark-mode .submit-button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border: 1px solid var(--dark-border) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .accessibility-option span {
+  color: var(--dark-text-primary) !important;
+  text-shadow: none !important;
+}
+
+.dark-mode .accessibility-option label {
+  color: var(--dark-accent) !important;
+  text-shadow: none !important;
+}
+
+.dark-mode .accessibility-menu h3 {
+  color: var(--dark-accent) !important;
+  text-shadow: none !important;
+  border-bottom: 1px solid var(--dark-border) !important;
+}
+
+.dark-mode .accessibility-controls button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border: 1px solid var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .accessibility-controls button.active {
+  background-color: var(--dark-accent) !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(127, 156, 245, 0.4) !important;
+}
+
+.dark-mode .reset-button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border: 1px solid var(--dark-border) !important;
+  color: var(--dark-accent) !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Transition for all elements when changing modes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure auth inputs always have white text */
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+  color: white !important;
+}
+
+/* Make sure placeholder text is properly contrasted */
+.auth-card input::placeholder,
+.auth-card select::placeholder,
+.auth-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ensure settings card inputs have consistent text color */
+.settings-card input,
+.settings-card select,
+.settings-card textarea {
+  color: black !important;
+}
+
+.settings-card input::placeholder,
+.settings-card select::placeholder,
+.settings-card textarea::placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Override for dark mode */
+.dark-mode .settings-card input,
+.dark-mode .settings-card select,
+.dark-mode .settings-card textarea {
+  color: white !important;
+}
+
+.dark-mode .settings-card input::placeholder,
+.dark-mode .settings-card select::placeholder,
+.dark-mode .settings-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}

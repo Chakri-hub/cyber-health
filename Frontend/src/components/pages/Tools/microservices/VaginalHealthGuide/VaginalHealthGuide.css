@@ -1,0 +1,354 @@
+/* Vaginal Health Guide Styles */
+.vh-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+.vh-container h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+}
+
+/* Intro Section */
+.vh-intro, .vh-normal, .vh-conditions, .vh-checklist, .vh-phbalance {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.vh-notice {
+  background-color: #f8f9fa;
+  border-left: 4px solid #ff69b4;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.vh-intro-content {
+  margin-bottom: 30px;
+}
+
+.vh-intro-content ul,
+.normal-facts ul,
+.when-to-see-doctor ul {
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.vh-intro-content li,
+.normal-facts li,
+.when-to-see-doctor li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+
+.vh-intro-actions, .section-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+/* Section Styles */
+.section-description {
+  margin-bottom: 25px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Discharge Variations */
+.discharge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.discharge-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s;
+}
+
+.discharge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.discharge-card h3 {
+  color: #ff69b4;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.discharge-description {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.discharge-advice {
+  font-style: italic;
+  color: #666;
+}
+
+.normal-facts {
+  background-color: #f0f7ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.normal-facts h3 {
+  color: #4e73df;
+  margin-bottom: 15px;
+}
+
+/* Conditions Section */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.condition-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.condition-card h3 {
+  color: #e83e8c;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.symptoms h4 {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.symptoms ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.symptoms li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.condition-advice {
+  font-style: italic;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Checklist Section */
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.symptom-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.symptom-item:hover {
+  background-color: #f0e6f0;
+  border-color: #dcc6e0;
+}
+
+.symptom-item.checked {
+  background-color: #f8e1ec;
+  border-color: #ff69b4;
+}
+
+.symptom-item input {
+  margin-right: 15px;
+}
+
+.recommendation {
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+.recommendation h3 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.high-concern {
+  background-color: #fce8e8;
+  border-left: 4px solid #e74a3b;
+}
+
+.high-concern h3 {
+  color: #e74a3b;
+}
+
+.medium-concern {
+  background-color: #fff8e6;
+  border-left: 4px solid #f6c23e;
+}
+
+.medium-concern h3 {
+  color: #f6c23e;
+}
+
+.low-concern {
+  background-color: #e8f8f0;
+  border-left: 4px solid #1cc88a;
+}
+
+.low-concern h3 {
+  color: #1cc88a;
+}
+
+/* pH Balance Section */
+.ph-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.ph-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.ph-card h3 {
+  color: #17a2b8;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ph-card ul {
+  margin-left: 20px;
+}
+
+.ph-card li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.when-to-see-doctor {
+  background-color: #f2f9ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 4px solid #4e73df;
+}
+
+.when-to-see-doctor h3 {
+  color: #4e73df;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.primary-button, 
+.secondary-button,
+.save-button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.primary-button {
+  background-color: #ff69b4;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #e05a9e;
+}
+
+.secondary-button {
+  background-color: #f8f9fa;
+  color: #ff69b4;
+  border: 1px solid #ff69b4;
+}
+
+.secondary-button:hover {
+  background-color: #ffeef6;
+}
+
+.save-button {
+  background-color: #4e73df;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #3756b5;
+}
+
+.save-button:disabled,
+.primary-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.save-message {
+  margin-left: 15px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .discharge-grid,
+  .conditions-grid,
+  .ph-tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-actions,
+  .vh-intro-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .save-message {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .conditions-grid {
+    grid-template-columns: 1fr;
+  }
+} 

@@ -1,0 +1,42 @@
+/* Footer Styles */
+.footer {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  flex-shrink: 0;
+  color: #fff;
+  user-select: none;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-bottom {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Ensure all interactive elements in footer have default cursor */
+.footer a, 
+.footer button {
+  cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 0.5rem 0;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    margin-bottom: 1.5rem;
+  }
+}

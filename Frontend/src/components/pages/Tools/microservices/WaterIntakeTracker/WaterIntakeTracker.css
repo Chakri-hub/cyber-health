@@ -1,0 +1,344 @@
+.water-intake-tracker {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.water-intake-tracker h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tool-description {
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tracker-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .tracker-container {
+    flex-direction: column;
+  }
+}
+
+/* Water Goal Section */
+.water-goal-section {
+  flex: 1;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.water-goal-section h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+.unit-input {
+  display: flex;
+  align-items: center;
+}
+
+.unit-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+}
+
+.unit-toggle {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.unit-toggle:hover {
+  background-color: #0b7dda;
+}
+
+.unit-label {
+  padding: 10px 15px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  color: #495057;
+  font-size: 16px;
+}
+
+.add-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.add-cup-button, .remove-cup-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.add-cup-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.add-cup-button:hover {
+  background-color: #3e8e41;
+}
+
+.add-cup-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.remove-cup-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.remove-cup-button:hover {
+  background-color: #d32f2f;
+}
+
+.remove-cup-button:disabled {
+  background-color: #ef9a9a;
+  cursor: not-allowed;
+}
+
+.message-container {
+  height: 30px;
+  margin: 10px 0;
+}
+
+.message {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+/* Water Visualization Section */
+.water-visualization-section {
+  flex: 1.2;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.water-visualization-section h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.water-bottle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.water-bottle {
+  position: relative;
+  width: 120px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid #2196F3;
+  border-radius: 20px 20px 80px 80px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.water-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2196F3;
+  transition: height 0.5s ease-in-out;
+  border-radius: 0 0 77px 77px;
+}
+
+.water-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 12px
+  );
+  border-radius: 17px 17px 77px 77px;
+  pointer-events: none;
+}
+
+.water-stats {
+  text-align: center;
+}
+
+.water-percentage {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2196F3;
+  margin-bottom: 5px;
+}
+
+.water-amount {
+  font-size: 16px;
+  color: #555;
+}
+
+.cups-log {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f8e9;
+  border-radius: 10px;
+}
+
+.cups-log h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.cups-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-height: 120px;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.cup-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #e3f2fd;
+  transition: transform 0.2s;
+}
+
+.cup-icon:hover {
+  transform: translateY(-3px);
+}
+
+.cup-size {
+  font-size: 12px;
+  margin-top: 3px;
+  color: #555;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #0b7dda;
+}
+
+.reset-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Hydration Tips Section */
+.hydration-tips {
+  background-color: #e3f2fd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hydration-tips h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hydration-tips ul {
+  padding-left: 20px;
+}
+
+.hydration-tips li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Responsive design for very small screens */
+@media (max-width: 480px) {
+  .add-buttons {
+    flex-direction: column;
+  }
+  
+  .unit-input input {
+    max-width: 70%;
+  }
+} 

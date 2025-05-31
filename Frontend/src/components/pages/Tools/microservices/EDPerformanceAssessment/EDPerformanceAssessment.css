@@ -1,0 +1,376 @@
+/* ED & Performance Assessment Tool Styles */
+.ed-assessment-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+.ed-assessment-container h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+}
+
+/* Introduction Section */
+.ed-intro {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ed-notice {
+  background-color: #f8f9fa;
+  border-left: 4px solid #4e73df;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.ed-intro-content {
+  margin-bottom: 30px;
+}
+
+.ed-intro-content ul {
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ed-intro-content li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+
+.ed-intro-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+/* Survey Section */
+.ed-survey {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.survey-instructions {
+  margin-bottom: 25px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.question-section {
+  margin-bottom: 40px;
+}
+
+.question-section h3 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  color: #2c3e50;
+}
+
+.question-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.question-number {
+  color: #4e73df;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.question-card h4 {
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.options.horizontal {
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-label:hover {
+  background-color: #eef2ff;
+  border-color: #c6d4fd;
+}
+
+.option-label.selected {
+  background-color: #4e73df;
+  color: white;
+  border-color: #4e73df;
+}
+
+.option-label input {
+  margin-right: 10px;
+}
+
+.health-question {
+  background-color: #f0f5ff;
+  border-color: #c6d4fd;
+}
+
+.health-note {
+  color: #4e73df;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.survey-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* Results Section */
+.ed-results {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.results-summary {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.score-display {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.score-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.assessment-summary {
+  flex-grow: 1;
+}
+
+.assessment-summary p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.doctor-recommendation {
+  background-color: #fff7f7;
+  border-left: 4px solid #e74a3b;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.doctor-recommendation h4 {
+  color: #e74a3b;
+  margin-bottom: 10px;
+}
+
+.health-conditions {
+  margin-top: 15px;
+}
+
+.health-conditions ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.health-conditions li {
+  margin-bottom: 5px;
+}
+
+.natural-tips {
+  margin-bottom: 40px;
+}
+
+.natural-tips h3 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.tips-intro {
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.tip-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.tip-card h4 {
+  color: #4e73df;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.tip-card p {
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+.tip-card ul {
+  margin-left: 15px;
+}
+
+.tip-card li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 5px;
+  color: #555;
+}
+
+.results-disclaimer {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.results-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.login-prompt {
+  font-style: italic;
+  color: #6c757d;
+}
+
+.save-message {
+  margin-left: auto;
+  font-weight: 500;
+  color: #28a745;
+}
+
+/* Buttons */
+.primary-button, 
+.secondary-button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.primary-button {
+  background-color: #4e73df;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #3756b5;
+}
+
+.primary-button:disabled {
+  background-color: #a2b4ea;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background-color: #f8f9fa;
+  color: #4e73df;
+  border: 1px solid #4e73df;
+}
+
+.secondary-button:hover {
+  background-color: #eef2ff;
+}
+
+.secondary-button:disabled {
+  color: #a2b4ea;
+  border-color: #a2b4ea;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .results-summary {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .options.horizontal {
+    flex-direction: column;
+  }
+  
+  .survey-actions, 
+  .results-actions, 
+  .ed-intro-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .save-message {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 10px;
+  }
+} 

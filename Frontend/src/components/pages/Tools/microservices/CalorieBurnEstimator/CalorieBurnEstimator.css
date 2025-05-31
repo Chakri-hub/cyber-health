@@ -1,0 +1,309 @@
+.calorie-burn-estimator {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calorie-burn-estimator h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tool-description {
+  color: #7f8c8d;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+.input-group-append {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: #495057;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-control.invalid {
+  border: 1px solid #dc3545;
+  background-color: #fff8f8;
+}
+
+.validation-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.unit-toggle span {
+  color: #7f8c8d;
+  margin: 0 10px;
+}
+
+.unit-toggle span.active {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.metric-selector {
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.metric-button {
+  flex: 1;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.metric-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.calculate-button, .save-button, .reset-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.calculate-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.calculate-button:hover {
+  background-color: #218838;
+}
+
+.calculate-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.save-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #0069d9;
+}
+
+.reset-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #c82333;
+}
+
+.results {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #28a745;
+}
+
+.results h3 {
+  color: #28a745;
+  margin-top: 0;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.saved-data {
+  margin-top: 30px;
+}
+
+.saved-data h3 {
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .calorie-burn-estimator {
+    padding: 15px;
+  }
+  
+  .radio-group {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .data-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
